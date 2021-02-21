@@ -156,7 +156,7 @@ document.getElementById(`showAlbums`).addEventListener(`click`, function () {
 //         method: "DELETE"
 //     })
 //         .then(response => response.json())
-//         .then(deletedAlbum => console.log(`The radnomNumber is ${randomDeleteAlbum}, and will delete the post`, deletedAlbum))
+//         .then(deletedAlbum => console.log(`The randomNumber is ${randomDeleteAlbum}, and will delete the post`, deletedAlbum))
 //         .catch(error => console.error(error));
 
 // })
