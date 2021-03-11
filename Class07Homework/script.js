@@ -160,10 +160,12 @@ document.getElementById(`btnPrintAllUser`).addEventListener(`click`, function ()
         .then(result => {
             result.forEach(element => {
                 printAllUser.push(element);
-                // console.log(element);
+               
+                // console.log(resultFunction(printAllUser));
 
 
             });
+            console.log(resultFunction(printAllUser));
         })
         .catch(error => console.error(error))
 
@@ -173,6 +175,6 @@ function resultFunction(array) {
     return array;
 }
 
-console.log(resultFunction(printAllUser));
+// console.log(resultFunction(printAllUser));
 // console.log(printAllUser);
 
