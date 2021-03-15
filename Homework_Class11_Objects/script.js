@@ -46,6 +46,7 @@ let crab = new AquaticAnimal(`fresh`, `Crab`, 2, `Cancer`, 10)
 
 console.log(`Turtle`, turtle);
 turtle.changeLifeEnvironment(`fresh`);
+console.log(`Turtle`, turtle);
 
 console.log(`Crab`, crab);
 turtle.changeLifeEnvironment(`salt`);

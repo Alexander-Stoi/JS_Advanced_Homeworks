@@ -2,6 +2,7 @@
 
 let regionalBlockInput = document.getElementById(`regionalBlockInput`);
 let btnGetData = document.getElementById(`getData`);
+const result = document.getElementById("result");
 
 const baseUrl = `https://restcountries.eu/rest/v2/regionalbloc/`;
 

@@ -64,6 +64,7 @@ console.log(`Turtle`, turtle);
 
 
 turtle.changeLifeEnvironment(`fresh`);
+console.log(`Turtle`, turtle);
 
 console.log(`Crab`, crab);
 turtle.changeLifeEnvironment(`salt`);
