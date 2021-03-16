@@ -5,6 +5,9 @@ let btnAscending = document.getElementById(`btnAscending`)
 let btnDescending = document.getElementById(`btnDescending`)
 let btnAscendingArea = document.getElementById(`btnAscendingArea`)
 let btnDescendingArea = document.getElementById(`btnDescendingArea`)
+let btnAscendingName = document.getElementById(`btnAscendingName`)
+let btnDescendingName = document.getElementById(`btnDescendingName`)
+let loader = document.getElementById("loader");
 
 const baseUrl = `https://restcountries.eu/rest/v2/name/`;
 
@@ -12,29 +15,32 @@ let resultFromFetch = [];
 console.log(`Before result from fetch data`, resultFromFetch)
 
 function getCountry(name) {
+    toggleLoader(true);
     return fetch(baseUrl + name)
         .then(response => response.json())
         .then(data => {
-
+            toggleLoader(false);
             if (data !== null) {
                 printTable(data);
                 resultFromFetch = data;
-                // console.log(`data`, data)
-                // console.log(`result from fetch data`, resultFromFetch)
             }
             else {
                 result.innerHTML += `<h2 color="red">There is something wrong with the data!</h2>`
             }
 
         })
-        .catch(error => console.error(error))
+        .catch(error => {
+            toggleLoader(false);
+            console.error(error);
+        })
+
 
 }
 
 btnGetData.addEventListener(`click`, function () {
 
     getCountry(countrySearch.value);
-    // console.log(`-------------------------`);
+
 
 })
 
@@ -52,7 +58,6 @@ btnAscending.addEventListener(`click`, function () {
 btnDescending.addEventListener(`click`, function () {
 
     let descArray = resultFromFetch.sort((country1, country2) => country2.population - country1.population);
-    // result.innerHTML = '';
     printTable(descArray);
 
 })
@@ -60,15 +65,26 @@ btnDescending.addEventListener(`click`, function () {
 
 btnAscendingArea.addEventListener(`click`, function () {
     let ascArea = resultFromFetch.sort((country1, country2) => country1.area - country2.area)
-    // result.innerHTML = '';
     printTable(ascArea)
 })
 
 btnDescendingArea.addEventListener(`click`, function () {
     let descArea = resultFromFetch.sort((country1, country2) => country2.area - country1.area)
-    // result.innerHTML = '';
+
     printTable(descArea)
 })
+
+
+btnAscendingName.addEventListener(`click`, function () {
+    let ascName = resultFromFetch.sort((country1, country2) => (country1.name).localeCompare(country2.name))
+    printTable(ascName);
+})
+
+btnDescendingName.addEventListener(`click`, function () {
+    let descName = resultFromFetch.sort((country1, country2) => (country2.name).localeCompare(country1.name))
+    printTable(descName);
+})
+
 
 
 function printTable(data) {
@@ -102,4 +118,11 @@ function printTable(data) {
         </table>
 `
     }
+}
+
+const toggleLoader = toggle => {
+    if (toggle)
+        loader.style.display = `block`;
+    else
+        loader.style.display = `none`;
 }

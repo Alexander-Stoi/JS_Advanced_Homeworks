@@ -9,6 +9,12 @@
 </head>
 
 <body>
+    <style>
+        #loader {
+            display: none;
+            height: 10vh;
+        }
+    </style>
 
 
     <h1>Country search</h1>
@@ -24,8 +30,10 @@
         <input id="btnAscendingArea" type="button" value="Ascending area" />
         <input id="btnDescendingArea" type="button" value="Descending area" />
 
+        <input id="btnAscendingName" type="button" value="Ascending name" />
+        <input id="btnDescendingName" type="button" value="Descending name" />
     </form></br></br>
-
+    <img src="loader.gif" alt="loader" class="center" id="loader">
     <table id="result" border="1">
 
     </table>
